@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+
     <!-- Login/Welcome Screen -->
     <div id="login-screen" class="screen active">
         <div class="login-container">
@@ -20,14 +28,102 @@
                 <p class="subtitle">Empowering Education with IoT Technology</p>
                 
                 <div class="login-buttons">
-                    <button class="btn btn-student" onclick="showScreen('student-dashboard')">
+                    <button class="btn btn-student" onclick="showStudentLogin()">
                         <i class="fas fa-user-graduate"></i>
                         Login as Student
                     </button>
-                    <button class="btn btn-teacher" onclick="showScreen('teacher-dashboard')">
+                    <button class="btn btn-teacher" onclick="showTeacherLogin()">
                         <i class="fas fa-chalkboard-teacher"></i>
                         Login as Teacher
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Login Form -->
+    <div id="student-login" class="screen">
+        <div class="login-form-container">
+            <div class="login-form-content">
+                <div class="form-header">
+                    <div class="education-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h2>Student Login</h2>
+                    <p>Enter your credentials to access your dashboard</p>
+                </div>
+                
+                <form class="login-form" onsubmit="handleStudentLogin(event)">
+                    <div class="form-group">
+                        <label for="student-username">Username</label>
+                        <input type="text" id="student-username" name="username" required placeholder="Enter your username">
+                        <i class="fas fa-user form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-password">Password</label>
+                        <input type="password" id="student-password" name="password" required placeholder="Enter your password">
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="showScreen('login-screen')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="login-help">
+                    <p><i class="fas fa-info-circle"></i> Forgot your password? Contact your teacher.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Login Form -->
+    <div id="teacher-login" class="screen">
+        <div class="login-form-container">
+            <div class="login-form-content">
+                <div class="form-header">
+                    <div class="education-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h2>Teacher Login</h2>
+                    <p>Enter your credentials to access your dashboard</p>
+                </div>
+                
+                <form class="login-form" onsubmit="handleTeacherLogin(event)">
+                    <div class="form-group">
+                        <label for="teacher-username">Username</label>
+                        <input type="text" id="teacher-username" name="username" required placeholder="Enter your username">
+                        <i class="fas fa-user form-icon"></i>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-password">Password</label>
+                        <input type="password" id="teacher-password" name="password" required placeholder="Enter your password">
+                        <i class="fas fa-lock form-icon"></i>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="showScreen('login-screen')">
+                            <i class="fas fa-arrow-left"></i>
+                            Back
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="login-help">
+                    <p><i class="fas fa-info-circle"></i> Forgot your password? Contact the administrator.</p>
                 </div>
             </div>
         </div>

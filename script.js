@@ -1,3 +1,102 @@
+// Login Functions
+function showStudentLogin() {
+    showScreen('student-login');
+}
+
+function showTeacherLogin() {
+    showScreen('teacher-login');
+}
+
+function handleStudentLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('student-username').value;
+    const password = document.getElementById('student-password').value;
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalContent = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+    submitBtn.disabled = true;
+    
+    // Simulate login validation
+    setTimeout(() => {
+        if (username && password) {
+            // Successful login
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+            submitBtn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                showNotification('Welcome back, ' + username + '!', 'success');
+                showScreen('student-dashboard');
+                
+                // Reset form
+                document.getElementById('student-username').value = '';
+                document.getElementById('student-password').value = '';
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 1000);
+        } else {
+            // Failed login
+            submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+            submitBtn.style.background = '#e74c3c';
+            
+            setTimeout(() => {
+                showNotification('Please enter valid credentials', 'error');
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 1500);
+        }
+    }, 1500);
+}
+
+function handleTeacherLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('teacher-username').value;
+    const password = document.getElementById('teacher-password').value;
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalContent = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+    submitBtn.disabled = true;
+    
+    // Simulate login validation
+    setTimeout(() => {
+        if (username && password) {
+            // Successful login
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+            submitBtn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                showNotification('Welcome back, ' + username + '!', 'success');
+                showScreen('teacher-dashboard');
+                
+                // Reset form
+                document.getElementById('teacher-username').value = '';
+                document.getElementById('teacher-password').value = '';
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 1000);
+        } else {
+            // Failed login
+            submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+            submitBtn.style.background = '#e74c3c';
+            
+            setTimeout(() => {
+                showNotification('Please enter valid credentials', 'error');
+                submitBtn.innerHTML = originalContent;
+                submitBtn.disabled = false;
+                submitBtn.style.background = '';
+            }, 1500);
+        }
+    }, 1500);
+}
+
 // Screen Navigation with Realistic Transitions
 function showScreen(screenId) {
     // Add loading transition
