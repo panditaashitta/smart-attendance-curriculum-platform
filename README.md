@@ -5,7 +5,6 @@ A comprehensive, educational platform that automates attendance tracking, provid
 **📧 Contact:** [10cashittapandita@gmail.com](mailto:10cashittapandita@gmail.com)
 ## 🎨 Design Features
 ### 1. Login/Welcome Screen
-- **Background**: Gradient from #2980b9 to #6dd5fa
 - **Features**:
   - Modern glassmorphism design
   - Education icon with graduation cap
@@ -111,10 +110,6 @@ smart-attendance-curriculum-platform/
 - **Multi-language Support**: Internationalization
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-## 👨‍💻 About the Developer
-**Ashitta Pandita** 
-- 🌱 Currently learning **HOW TO SURVIVE**
 ## 🌟 Show Your Support
 If you found this project helpful, please give it a ⭐ star on GitHub!
-**Built with ❤️ for Smart Education**
-*Smarter Attendance, Sharper Learning* 
+
