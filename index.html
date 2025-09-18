@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance & Curriculum Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login/Welcome Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="login-container">
+            <div class="login-content">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h1 class="main-title">Smart Attendance & Curriculum Platform</h1>
+                <p class="subtitle">Empowering Education with IoT Technology</p>
+                
+                <div class="login-buttons">
+                    <button class="btn btn-student" onclick="showScreen('student-dashboard')">
+                        <i class="fas fa-user-graduate"></i>
+                        Login as Student
+                    </button>
+                    <button class="btn btn-teacher" onclick="showScreen('teacher-dashboard')">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        Login as Teacher
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="student-dashboard" class="screen">
+        <div class="dashboard-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>Student Dashboard</h2>
+                        <div class="breadcrumb">Student Dashboard</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('student-schedule')">
+                            <i class="fas fa-calendar"></i> Schedule
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('student-tasks')">
+                            <i class="fas fa-tasks"></i> Tasks
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <!-- Attendance Status Card -->
+                <div class="attendance-status-card">
+                    <div class="status-header">
+                        <h3><i class="fas fa-chart-line"></i> Your Attendance Status</h3>
+                        <span class="live-indicator">🔴 LIVE</span>
+                    </div>
+                    <div class="attendance-metrics">
+                        <div class="metric">
+                            <span class="metric-value">85%</span>
+                            <span class="metric-label">Overall</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">92%</span>
+                            <span class="metric-label">This Week</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Present</span>
+                            <span class="metric-label">Today</span>
+                        </div>
+                    </div>
+                    <div class="qr-scan-section">
+                        <button class="qr-scan-btn" onclick="scanQR()">
+                            <i class="fas fa-qrcode"></i>
+                            Scan QR for Attendance
+                        </button>
+                        <p class="scan-info">Automatically mark attendance with QR + proximity</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showScreen('student-schedule')">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>View Schedule</span>
+                        </button>
+                        <button class="action-btn" onclick="showScreen('student-tasks')">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Suggested Tasks</span>
+                        </button>
+                        <button class="action-btn" onclick="viewReports()">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>View Reports</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Student Schedule/Timetable -->
+    <div id="student-schedule" class="screen">
+        <div class="schedule-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>My Schedule</h2>
+                        <div class="breadcrumb">Student Dashboard > My Schedule</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('student-dashboard')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('student-tasks')">
+                            <i class="fas fa-tasks"></i> Tasks
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="schedule-main">
+                <div class="schedule-header">
+                    <h3><i class="fas fa-calendar-week"></i> Weekly Timetable</h3>
+                    <div class="schedule-controls">
+                        <button class="schedule-btn active" onclick="showDaySchedule('today')">Today</button>
+                        <button class="schedule-btn" onclick="showDaySchedule('week')">This Week</button>
+                    </div>
+                </div>
+
+                <div class="timetable">
+                    <div class="time-slot">
+                        <div class="time">09:00 - 10:30</div>
+                        <div class="subject">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Computer Science</span>
+                            <span class="room">Room 101</span>
+                        </div>
+                        <div class="status present">✅ Present</div>
+                    </div>
+                    
+                    <div class="time-slot free-period">
+                        <div class="time">10:30 - 11:00</div>
+                        <div class="subject">
+                            <i class="fas fa-coffee"></i>
+                            <span>Free Period</span>
+                            <div class="suggested-tasks">
+                                <p>Suggested activities:</p>
+                                <ul>
+                                    <li>📚 Review CS notes</li>
+                                    <li>💻 Practice coding</li>
+                                    <li>📖 Read tech articles</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="status free">🆓 Free</div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time">11:00 - 12:30</div>
+                        <div class="subject">
+                            <i class="fas fa-calculator"></i>
+                            <span>Mathematics</span>
+                            <span class="room">Room 205</span>
+                        </div>
+                        <div class="status upcoming">⏰ Upcoming</div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time">12:30 - 13:30</div>
+                        <div class="subject">
+                            <i class="fas fa-utensils"></i>
+                            <span>Lunch Break</span>
+                        </div>
+                        <div class="status break">🍽️ Break</div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time">13:30 - 15:00</div>
+                        <div class="subject">
+                            <i class="fas fa-flask"></i>
+                            <span>Physics Lab</span>
+                            <span class="room">Lab 301</span>
+                        </div>
+                        <div class="status upcoming">⏰ Upcoming</div>
+                    </div>
+                </div>
+
+                <div class="daily-routine">
+                    <h4><i class="fas fa-clock"></i> Daily Routine Generated</h4>
+                    <div class="routine-tips">
+                        <div class="tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Use free periods for skill development</span>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-target"></i>
+                            <span>Focus on weak subjects during study time</span>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-heart"></i>
+                            <span>Take breaks to maintain productivity</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Student Tasks -->
+    <div id="student-tasks" class="screen">
+        <div class="tasks-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>Suggested Tasks</h2>
+                        <div class="breadcrumb">Student Dashboard > Suggested Tasks</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('student-dashboard')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('student-schedule')">
+                            <i class="fas fa-calendar"></i> Schedule
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="tasks-main">
+                <div class="tasks-header">
+                    <h3><i class="fas fa-brain"></i> AI-Powered Task Suggestions</h3>
+                    <p>Tasks matched to your interests and long-term goals</p>
+                </div>
+
+                <div class="task-categories">
+                    <div class="task-category">
+                        <h4><i class="fas fa-code"></i> Technical Skills</h4>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <h5>Complete Python Project</h5>
+                                    <p>Build a simple calculator app</p>
+                                    <span class="task-duration">⏱️ 45 minutes</span>
+                                </div>
+                                <div class="task-actions">
+                                    <button class="task-btn start">Start</button>
+                                    <button class="task-btn later">Later</button>
+                                </div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <h5>Learn React Basics</h5>
+                                    <p>Complete online tutorial</p>
+                                    <span class="task-duration">⏱️ 60 minutes</span>
+                                </div>
+                                <div class="task-actions">
+                                    <button class="task-btn start">Start</button>
+                                    <button class="task-btn later">Later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-category">
+                        <h4><i class="fas fa-book"></i> Academic</h4>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <h5>Review Math Formulas</h5>
+                                    <p>Prepare for upcoming test</p>
+                                    <span class="task-duration">⏱️ 30 minutes</span>
+                                </div>
+                                <div class="task-actions">
+                                    <button class="task-btn start">Start</button>
+                                    <button class="task-btn later">Later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-category">
+                        <h4><i class="fas fa-users"></i> Soft Skills</h4>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <div class="task-info">
+                                    <h5>Practice Presentation</h5>
+                                    <p>Prepare for group project</p>
+                                    <span class="task-duration">⏱️ 20 minutes</span>
+                                </div>
+                                <div class="task-actions">
+                                    <button class="task-btn start">Start</button>
+                                    <button class="task-btn later">Later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Teacher Dashboard -->
+    <div id="teacher-dashboard" class="screen">
+        <div class="dashboard-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>Teacher Dashboard</h2>
+                        <div class="breadcrumb">Teacher Dashboard</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('qr-generator')">
+                            <i class="fas fa-qrcode"></i> QR Generator
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('class-management')">
+                            <i class="fas fa-chalkboard"></i> Classes
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <div class="teacher-overview">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Teaching Overview</h3>
+                    <div class="overview-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Total Students</h4>
+                            <span class="stat-number">156</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-chalkboard"></i>
+                            <h4>Active Classes</h4>
+                            <span class="stat-number">8</span>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Today's Attendance</h4>
+                            <span class="stat-number">94%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-teacher-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="showScreen('qr-generator')">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Generate QR Code</span>
+                        </button>
+                        <button class="action-btn" onclick="showScreen('class-management')">
+                            <i class="fas fa-list"></i>
+                            <span>Manage Classes</span>
+                        </button>
+                        <button class="action-btn" onclick="viewAttendanceReports()">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Attendance Reports</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- QR Code Generator -->
+    <div id="qr-generator" class="screen">
+        <div class="qr-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>QR Code Generator</h2>
+                        <div class="breadcrumb">Teacher Dashboard > QR Generator</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('teacher-dashboard')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('class-management')">
+                            <i class="fas fa-chalkboard"></i> Classes
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="qr-main">
+                <div class="qr-generator-section">
+                    <h3><i class="fas fa-qrcode"></i> Generate Attendance QR Code</h3>
+                    
+                    <div class="qr-form">
+                        <div class="form-group">
+                            <label>Class Name</label>
+                            <select id="classSelect">
+                                <option value="cs101">Computer Science 101</option>
+                                <option value="math201">Mathematics 201</option>
+                                <option value="physics301">Physics Lab 301</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Date & Time</label>
+                            <input type="datetime-local" id="classDateTime" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Duration (minutes)</label>
+                            <input type="number" id="classDuration" value="90" min="30" max="180">
+                        </div>
+                        
+                        <button class="generate-qr-btn" onclick="generateQR()">
+                            <i class="fas fa-magic"></i>
+                            Generate QR Code
+                        </button>
+                    </div>
+                </div>
+
+                <div class="qr-display-section">
+                    <div class="qr-code-container">
+                        <div id="qrCodeDisplay" class="qr-code">
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                                <p>QR Code will appear here</p>
+                            </div>
+                        </div>
+                        <div class="qr-info">
+                            <h4>QR Code Information</h4>
+                            <div class="qr-details">
+                                <p><strong>Class:</strong> <span id="qrClass">-</span></p>
+                                <p><strong>Date:</strong> <span id="qrDate">-</span></p>
+                                <p><strong>Time:</strong> <span id="qrTime">-</span></p>
+                                <p><strong>Duration:</strong> <span id="qrDuration">-</span></p>
+                            </div>
+                            <button class="download-qr-btn" onclick="downloadQR()">
+                                <i class="fas fa-download"></i>
+                                Download QR Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-instructions">
+                    <h4><i class="fas fa-info-circle"></i> How to Use</h4>
+                    <ol>
+                        <li>Generate QR code for your class</li>
+                        <li>Display QR code on screen or print it</li>
+                        <li>Students scan with their phones</li>
+                        <li>Attendance is automatically recorded</li>
+                        <li>View real-time attendance updates</li>
+                    </ol>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Class Management -->
+    <div id="class-management" class="screen">
+        <div class="class-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <div class="header-title">
+                        <h2>Class Management</h2>
+                        <div class="breadcrumb">Teacher Dashboard > Class Management</div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('teacher-dashboard')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('qr-generator')">
+                            <i class="fas fa-qrcode"></i> QR Generator
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="class-main">
+                <div class="class-list">
+                    <h3><i class="fas fa-chalkboard"></i> Your Classes</h3>
+                    
+                    <div class="class-cards">
+                        <div class="class-card">
+                            <div class="class-header">
+                                <h4>Computer Science 101</h4>
+                                <span class="class-status active">Active</span>
+                            </div>
+                            <div class="class-info">
+                                <p><i class="fas fa-users"></i> 32 Students</p>
+                                <p><i class="fas fa-clock"></i> Mon, Wed, Fri 09:00-10:30</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Room 101</p>
+                            </div>
+                            <div class="class-actions">
+                                <button class="class-btn" onclick="viewClassDetails('cs101')">
+                                    <i class="fas fa-eye"></i> View Details
+                                </button>
+                                <button class="class-btn" onclick="generateClassQR('cs101')">
+                                    <i class="fas fa-qrcode"></i> Generate QR
+                                </button>
+                            </div>
+                            <div class="attendance-summary">
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Today's Attendance</span>
+                                    <span class="stat-value">94%</span>
+                                </div>
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Present</span>
+                                    <span class="stat-value">30/32</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="class-card">
+                            <div class="class-header">
+                                <h4>Mathematics 201</h4>
+                                <span class="class-status active">Active</span>
+                            </div>
+                            <div class="class-info">
+                                <p><i class="fas fa-users"></i> 28 Students</p>
+                                <p><i class="fas fa-clock"></i> Tue, Thu 11:00-12:30</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Room 205</p>
+                            </div>
+                            <div class="class-actions">
+                                <button class="class-btn" onclick="viewClassDetails('math201')">
+                                    <i class="fas fa-eye"></i> View Details
+                                </button>
+                                <button class="class-btn" onclick="generateClassQR('math201')">
+                                    <i class="fas fa-qrcode"></i> Generate QR
+                                </button>
+                            </div>
+                            <div class="attendance-summary">
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Today's Attendance</span>
+                                    <span class="stat-value">89%</span>
+                                </div>
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Present</span>
+                                    <span class="stat-value">25/28</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="class-card">
+                            <div class="class-header">
+                                <h4>Physics Lab 301</h4>
+                                <span class="class-status active">Active</span>
+                            </div>
+                            <div class="class-info">
+                                <p><i class="fas fa-users"></i> 24 Students</p>
+                                <p><i class="fas fa-clock"></i> Mon, Wed 13:30-15:00</p>
+                                <p><i class="fas fa-map-marker-alt"></i> Lab 301</p>
+                            </div>
+                            <div class="class-actions">
+                                <button class="class-btn" onclick="viewClassDetails('physics301')">
+                                    <i class="fas fa-eye"></i> View Details
+                                </button>
+                                <button class="class-btn" onclick="generateClassQR('physics301')">
+                                    <i class="fas fa-qrcode"></i> Generate QR
+                                </button>
+                            </div>
+                            <div class="attendance-summary">
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Today's Attendance</span>
+                                    <span class="stat-value">96%</span>
+                                </div>
+                                <div class="attendance-stat">
+                                    <span class="stat-label">Present</span>
+                                    <span class="stat-value">23/24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="student-data-section">
+                    <h3><i class="fas fa-database"></i> Student Data & Reports</h3>
+                    <div class="data-actions">
+                        <button class="data-btn" onclick="exportStudentData()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                        <button class="data-btn" onclick="viewAttendanceReports()">
+                            <i class="fas fa-chart-line"></i> Attendance Reports
+                        </button>
+                        <button class="data-btn" onclick="manageStudentProfiles()">
+                            <i class="fas fa-user-edit"></i> Manage Profiles
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Attendance Dashboard -->
+    <div id="dashboard-screen" class="screen">
+        <div class="dashboard-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <h2>Attendance Dashboard</h2>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('curriculum-screen')">
+                            <i class="fas fa-book"></i> Curriculum
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('analytics-screen')">
+                            <i class="fas fa-chart-bar"></i> Analytics
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <div class="attendance-table">
+                    <h3>Student Attendance Overview</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Attendance</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="student-info">
+                                            <i class="fas fa-user-circle"></i>
+                                            <span>Aarav</span>
+                                        </div>
+                                    </td>
+                                    <td>85%</td>
+                                    <td><span class="status-badge good">✅ Good</span></td>
+                                    <td><button class="btn-small">View Details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-info">
+                                            <i class="fas fa-user-circle"></i>
+                                            <span>Siya</span>
+                                        </div>
+                                    </td>
+                                    <td>72%</td>
+                                    <td><span class="status-badge average">⚠️ Average</span></td>
+                                    <td><button class="btn-small">View Details</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="student-info">
+                                            <i class="fas fa-user-circle"></i>
+                                            <span>Kabir</span>
+                                        </div>
+                                    </td>
+                                    <td>60%</td>
+                                    <td><span class="status-badge low">❌ Low</span></td>
+                                    <td><button class="btn-small">View Details</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Floating IoT Check-in Button -->
+            <button class="floating-btn" onclick="checkIn()">
+                <i class="fas fa-check"></i>
+                <span>IoT Check-in</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Curriculum Recommendation Page -->
+    <div id="curriculum-screen" class="screen">
+        <div class="curriculum-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <h2>Curriculum Recommendations</h2>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('dashboard-screen')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('analytics-screen')">
+                            <i class="fas fa-chart-bar"></i> Analytics
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="curriculum-main">
+                <div class="recommendation-engine">
+                    <div class="engine-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Smart Recommendation Engine</h3>
+                    </div>
+                </div>
+
+                <div class="student-cards">
+                    <div class="student-card">
+                        <div class="card-header">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="student-details">
+                                <h4>Student: Aarav</h4>
+                                <span class="performance-badge high">Performance: High</span>
+                            </div>
+                        </div>
+                        
+                        <div class="recommended-courses">
+                            <h5>Recommended Courses:</h5>
+                            <div class="course-list">
+                                <div class="course-item">
+                                    <i class="fas fa-robot"></i>
+                                    <span>Advanced AI</span>
+                                </div>
+                                <div class="course-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Data Science</span>
+                                </div>
+                                <div class="course-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>Machine Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="student-card">
+                        <div class="card-header">
+                            <div class="student-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="student-details">
+                                <h4>Student: Siya</h4>
+                                <span class="performance-badge medium">Performance: Medium</span>
+                            </div>
+                        </div>
+                        
+                        <div class="recommended-courses">
+                            <h5>Recommended Courses:</h5>
+                            <div class="course-list">
+                                <div class="course-item">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>Web Development</span>
+                                </div>
+                                <div class="course-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Soft Skills</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Analytics/Reports Screen -->
+    <div id="analytics-screen" class="screen">
+        <div class="analytics-container">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>SmartEdu</span>
+                    </div>
+                    <h2>Analytics & Reports</h2>
+                    <div class="header-actions">
+                        <button class="btn-nav" onclick="showScreen('dashboard-screen')">
+                            <i class="fas fa-home"></i> Dashboard
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('curriculum-screen')">
+                            <i class="fas fa-book"></i> Curriculum
+                        </button>
+                        <button class="btn-nav" onclick="showScreen('login-screen')">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="analytics-main">
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Attendance Trend</h3>
+                        <div class="line-chart">
+                            <canvas id="attendanceChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Recommended Courses Distribution</h3>
+                        <div class="pie-chart">
+                            <canvas id="coursesChart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Total Students</h4>
+                        <span class="stat-number">156</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Average Attendance</h4>
+                        <span class="stat-number">78%</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <h4>Active Courses</h4>
+                        <span class="stat-number">24</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h4>Performance Score</h4>
+                        <span class="stat-number">8.5</span>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="tagline">
+                <p>Smarter Attendance, Sharper Learning</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

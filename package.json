@@ -1,0 +1,39 @@
+{
+  "name": "smart-attendance-curriculum-platform",
+  "version": "1.0.0",
+  "description": "A comprehensive, IoT-powered educational platform that automates attendance tracking, provides real-time insights, and offers AI-driven task suggestions for students and teachers.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 3000",
+    "build": "echo 'No build process needed for static files'",
+    "deploy": "echo 'Ready for GitHub Pages deployment'"
+  },
+  "keywords": [
+    "education",
+    "attendance",
+    "qr-code",
+    "iot",
+    "curriculum",
+    "student-management",
+    "teacher-tools",
+    "smart-education"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/smart-attendance-curriculum-platform.git"
+  },
+  "homepage": "https://yourusername.github.io/smart-attendance-curriculum-platform",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
