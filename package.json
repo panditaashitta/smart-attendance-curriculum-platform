@@ -19,13 +19,13 @@
     "teacher-tools",
     "smart-education"
   ],
-  "author": "Your Name",
+  "author": "Ashitta Pandita",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/smart-attendance-curriculum-platform.git"
+    "url": "https://github.com/panditaashitta/smart-attendance-curriculum-platform.git"
   },
-  "homepage": "https://yourusername.github.io/smart-attendance-curriculum-platform",
+  "homepage": "https://panditaashitta.github.io/smart-attendance-curriculum-platform",
   "engines": {
     "node": ">=14.0.0"
   },
