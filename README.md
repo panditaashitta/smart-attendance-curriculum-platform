@@ -1,25 +1,12 @@
 # Smart Attendance & Curriculum Platform
 
-A comprehensive, IoT-powered educational platform that automates attendance tracking, provides real-time insights, and offers AI-driven task suggestions for students and teachers. Features QR code automation, proximity-based attendance, and intelligent scheduling.
+A comprehensive, educational platform that automates attendance tracking, provides real-time insights, and offers AI-driven task suggestions for students and teachers. Features QR code automation, proximity-based attendance, and intelligent scheduling.
 
 **👨‍💻 Developed by:** [Ashitta Pandita](https://github.com/panditaashitta)  
 **🌐 Live Demo:** [https://panditaashitta.github.io/smart-attendance-curriculum-platform](https://panditaashitta.github.io/smart-attendance-curriculum-platform)  
 **📧 Contact:** [10cashittapandita@gmail.com](mailto:10cashittapandita@gmail.com)
 
 ## 🎨 Design Features
-
-### Color Palette
-- **Primary Blue**: #2980b9
-- **Success Green**: #27ae60
-- **Warning Yellow**: #f1c40f
-- **Danger Red**: #e74c3c
-- **Dark Blue**: #2c3e50
-- **Text Color**: #34495e
-
-### Typography
-- **Primary Font**: Poppins (Google Fonts)
-- **Heading Color**: #2c3e50
-- **Body Text**: #34495e
 
 ## 📱 Screens Overview
 
@@ -32,7 +19,6 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Responsive button animations
 
 ### 2. Student Dashboard
-- **Background**: Clean white
 - **Features**:
   - Real-time attendance status with LIVE indicator
   - QR scan button for automated attendance
@@ -40,7 +26,6 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Attendance metrics (Overall, This Week, Today)
 
 ### 3. Student Schedule/Timetable
-- **Background**: Light grey (#f8f9fa)
 - **Features**:
   - Interactive weekly timetable
   - Free period task suggestions
@@ -49,7 +34,6 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Smart time management suggestions
 
 ### 4. Student Tasks Page
-- **Background**: Light grey (#f8f9fa)
 - **Features**:
   - AI-powered task suggestions
   - Categorized tasks (Technical, Academic, Soft Skills)
@@ -57,14 +41,12 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Interactive task management
 
 ### 5. Teacher Dashboard
-- **Background**: Clean white
 - **Features**:
   - Teaching overview statistics
   - Quick access to QR generator and class management
   - Real-time attendance monitoring
 
 ### 6. QR Code Generator
-- **Background**: Light grey (#f8f9fa)
 - **Features**:
   - Dynamic QR code generation
   - Class information form
@@ -72,7 +54,6 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Usage instructions
 
 ### 7. Class Management
-- **Background**: Light grey (#f8f9fa)
 - **Features**:
   - Class cards with attendance summaries
   - Student data export functionality
@@ -80,7 +61,6 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Real-time attendance tracking
 
 ### 8. Analytics/Reports Screen
-- **Background**: White
 - **Features**:
   - Interactive attendance trend line chart
   - Course distribution pie chart
@@ -88,29 +68,7 @@ A comprehensive, IoT-powered educational platform that automates attendance trac
   - Tagline: "Smarter Attendance, Sharper Learning"
 
 ## 🚀 Getting Started
-
-### 🌐 Live Demo
-**Try it now:** [https://panditaashitta.github.io/smart-attendance-curriculum-platform](https://panditaashitta.github.io/smart-attendance-curriculum-platform)
-
-### 📥 Local Installation
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/panditaashitta/smart-attendance-curriculum-platform.git
-   cd smart-attendance-curriculum-platform
-   ```
-
-2. **Open in browser:**
-   - Simply open `index.html` in any modern web browser
-   - Or use a local server:
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js
-     npx http-server
-     ```
-
-3. **Access:** Visit `http://localhost:8000` (if using local server)
+1. **Access:** Visit `http://localhost:8000` (if using local server)
 
 ### 📁 File Structure
 ```
@@ -181,22 +139,6 @@ smart-attendance-curriculum-platform/
 2. Style the screen in `styles.css`
 3. Add navigation logic in `script.js`
 
-### Modifying Colors
-Update the CSS custom properties in `styles.css`:
-```css
-:root {
-    --primary-blue: #2980b9;
-    --success-green: #27ae60;
-    --warning-yellow: #f1c40f;
-    --danger-red: #e74c3c;
-}
-```
-
-### Adding New Charts
-1. Add a canvas element in the HTML
-2. Initialize the chart in the `initializeCharts()` function
-3. Style the chart container in CSS
-
 ## 📊 Data Integration
 
 The application is designed to easily integrate with real data sources:
@@ -225,45 +167,16 @@ The application is designed to easily integrate with real data sources:
 - **Advanced Analytics**: Machine learning insights
 - **Multi-language Support**: Internationalization
 
-## 📱 Browser Compatibility
-
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-
-## 🤝 Contributing
-
-This project is open source and welcomes contributions! Feel free to:
-- 🍴 **Fork** the project
-- ✨ **Add new features** (IoT integration, real backend APIs)
-- 🎨 **Improve the design** and user experience
-- ⚡ **Optimize performance** and add more animations
-- ♿ **Add accessibility features**
-- 🐛 **Report bugs** and suggest improvements
-
-### How to Contribute
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 About the Developer
 
-**Ashitta Pandita** - Student passionate about Web Development and Python projects
+**Ashitta Pandita** 
 
-- 🌱 Currently learning **React**
-- 💻 Working on real-world coding projects
-- 📧 Contact: [10cashittapandita@gmail.com](mailto:10cashittapandita@gmail.com)
-- 🔗 GitHub: [@panditaashitta](https://github.com/panditaashitta)
-- 📍 Based in Mysore, Karnataka
-
-*"Running on caffeine, chaos, and copy-paste. I like long walks… to the fridge."* ☕
+- 🌱 Currently learning **HOW TO SURVIVE**
+- 📍 I like long walks… to the fridge."* ☕
 
 ## 🌟 Show Your Support
 
