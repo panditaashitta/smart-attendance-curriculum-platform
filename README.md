@@ -52,15 +52,7 @@ A comprehensive, educational platform that automates attendance tracking, provid
   - Course distribution pie chart
   - Statistics grid with key metrics
   - Tagline: "Smarter Attendance, Sharper Learning"
-### 📁 File Structure
-smart-attendance-curriculum-platform/
-├── index.html          # Main application with all screens
-├── styles.css          # Complete CSS styling with animations
-├── script.js           # JavaScript for interactivity and transitions
-├── README.md           # Project documentation
-├── package.json        # Project metadata
-├── .gitignore         # Git ignore rules
-└── deploy.md          # Deployment guide
+  
 ## 🎯 Key Features
 ### 🤖 Automated Attendance System
 - **QR Code + Proximity**: Automates attendance using QR scanning and proximity detection
